@@ -22,7 +22,9 @@ func main() {
 	var c hotcat
 
 	mux := http.NewServeMux()
+	// dog handler, handles path="/dog/something/else"
 	mux.Handle("/dog/", d)
+	// cat handler, doesn't take path="/cat/something/else" goes 404
 	mux.Handle("/cat", c)
 
 	http.ListenAndServe(":8080", mux)
